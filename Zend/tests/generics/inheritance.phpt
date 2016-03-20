@@ -1,34 +1,23 @@
 --TEST--
-Test class declarations
+Can extend generic classes
 --FILE--
 <?php
 
-interface IBase<T>
-{
-	public function doWork(T $v): T;
-}
+class A<T>
+{}
 
-class A<T> implements IBase<T>
-{
-	public function doWork(T $v): T
-	{
-		return $v;
-	}
-}
+class B
+{}
 
+class AB extends A<B>
+{}
 
-interface AbstractBase<T>
-{
-	public function doWork(T $v): T
-	{
-		return $v;
-	}
-}
-
-class B<T> extends AbstractBase<T>
-{
-	
-}
+var_dump(new AB() instanceof A); // true
+var_dump(new AB() instanceof A<B>); // true
+var_dump(new AB() instanceof B); // false
 
 ?>
 --EXPECT--
+bool(true)
+bool(true)
+bool(false)

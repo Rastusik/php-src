@@ -1,5 +1,5 @@
 --TEST--
-Test class declarations
+Can parse generic function/method-declarations
 --FILE--
 <?php
 
