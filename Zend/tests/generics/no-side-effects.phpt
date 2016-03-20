@@ -15,7 +15,7 @@ var_dump(new A<NoSuchClass>() instanceof A<NoSuchClass>);
 new NoSuchClass();
 
 ?>
---EXPECT--
+--EXPECTF--
 bool(true)
 bool(true)
-Fatal error: Class 'NoSuchClass' not found
+Fatal error: Class 'NoSuchClass' not found in %s on line %d
